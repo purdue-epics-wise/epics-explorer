@@ -1,10 +1,5 @@
-EPICS Explorer
-=============
+# EPICS | explorer
 
-EPICS Explorer is a web-based application to help prospective EPICS students select EPICS teams based on a variety of factors.
+**Description:** The explorer is a web-based application meant to help prospective EPICS students select a team, taking into account the students' interests, expertise, and time constraints. Through it, students can explore each of the teams and their projects. It is meant to be an aesthetic and functional replacement to the current EPICS Explorer. Currently the project team is working on implementing MEAN, a full-stack JavaScript framework.
 
-<<<<<<< HEAD
-Currently built as a Wordpress theme.
-=======
-The EPICS Explorer is constructed on the MEAN stack: MongoDB, Express, AngularJS, Node.js
->>>>>>> parent of b9fc918... Update README.md
+**About EPICS:** Engineering Projects in Community Service (EPICS) is a response from Purdue University to the challenge of bringing together community service agencies, who need the help of people with strong technical backgrounds, and undergraduate students, who need educational experiences that can help them broaden their skills.

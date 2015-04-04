@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans|Lora' rel='stylesheet' type='text/css'>
+
+		<title>EPICS Explorer</title>
+
+		<link rel='stylesheet' href='stylesheets/screen.css' type='text/css' media='all' />
+
+		<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mixitup.js"></script>
+
+		<script>
+		</script>
+		
+	</head>
+	<body>
+
+		<div id="splash" class="">
+			<div id="splash-header">
+				<a class="logotype-purdue" href="http://www.purdue.edu/"><img class="logotype" src="images/Purdue.png" /></a>
+				<a class="logotype-epics" href="https://engineering.purdue.edu/EPICS"><img class="logotype" src="images/EPICS.png" /></a>
+			</div>
+
+			<span class="splash-headline">Welcome to the<span class="splash-headline--keyword lowercase"> explorer</span>.</span>
+
+			<span class="splash-intro">Let us help you find a team to learn, grow, and thrive in.</span>
+
+			<div id="splash-start" class="uppercase">Let's get started</div>
+		</div>
+
+		<div class="container">
+
+			<div id="sidebar">
+				<img class="sidebar-image" src="images/EPICS.png" />
+				<span class="sidebar-title">e x p l o r e r</span>
+
+				<div class="sidebar-item sidebar-item--school uppercase">
+					<span class="sidebar-item-title">School</span>
+					<span class="sidebar-item-object">Engineering</span>
+				</div>
+
+				<div class="sidebar-item sidebar-item--major uppercase">
+					<span class="sidebar-item-title">Major</span>
+					<span class="sidebar-item-object">Aeronautical</span>
+				</div>
+
+				<div class="sidebar-item sidebar-item--day uppercase">
+					<span class="sidebar-item-title">Day</span>
+					<span class="sidebar-item-object">Thursday</span>
+				</div>
+
+				<div class="sidebar-item sidebar-item--time uppercase">
+					<span class="sidebar-item-title">Time</span>
+					<span class="sidebar-item-object">8:30 AM - 10:20 AM</span>
+				</div>
+
+				<div class="sidebar-item sidebar-item--impact uppercase">
+					<span class="sidebar-item-title">Area of Impact</span>
+					<span class="sidebar-item-object">Human Services</span>
+				</div>
+				
+
+			</div>
+			
+
+
+
+
+			<!--
+			<div id="filters" class="hidden">
+				<div class="filter-row">
+					<div class="filter-cell-cat">Major</div>
+					<div class="filter-cell-opt">
+						<div class="filter" data-filter=".major-che">Chemical Engineering</div>
+						<div class="filter" data-filter=".major-bme">Biomedical Engineering</div>
+						<div class="filter" data-filter=".major-aae">Aero/Astro Engineering</div>
+						<div class="filter" data-filter=".major-me">Mechanical Engineering</div>
+						<div class="filter" data-filter=".major-ee">Electrical Engineering</div>
+						<div class="filter" data-filter=".major-mse">Materials Engineering</div>
+						<div class="filter" data-filter=".major-ce">Civil Engineering</div>
+						<div class="filter" data-filter="all">Show All</div>
+					</div>
+				</div>
+				<div class="filter-row">
+					<div class="filter-cell-cat">Interests</div>
+					<div class="filter-cell-opt">
+						<span class="filter">Machinery</span>
+						<span class="filter">Chemistry</span>
+						<span class="filter">Woodworking</span>
+						<span class="filter">Fabrication</span>
+						<span class="filter">Programming</span>
+						<span class="filter">Education</span>
+						<span class="filter">Electronics</span>
+					</div>
+				</div>
+			</div>
+			<div id="sorting" class="hidden">
+				<div class="sorting-row">
+					<div class="sorting-cell-cat">Sort</div>
+					<div class="sorting-cell-opt">
+						<div class="sort" data-sort="default">Default</div>
+						<div class="sort" data-sort="myorder:asc">Ascending</div>
+						<div class="sort" data-sort="myorder:desc">Descending</div>
+						<div class="sort" data-sort="random">Random</div>
+					</div>
+				</div>
+			</div>
+
+
+			<hr class="hidden" />
+
+			<div id="objects">
+				<div class="mix major-che major-cs" data-myorder="1">
+					<div class="name">Web-based Interactive Software Engineering</div>
+					<div class="detail">
+						<div class="instructions">Instructions: Select relevant major(s), the day, the time, and the area of current team under the categories. The parent categories (i.e. the ones labeled "Day," "Timeslot," "Major," and "Area") need not be selected.</div>
+						<div class="team-description">
+							<b>Description:</b> The WISE team creates web-based applications meant to coordinate and inform their project partners' members, volunteers, and users. The applications are easy to use while still implementing requested functionality. This provides value to the users by simplifying and expanding current outdated processes without being overwhelming.
+						</div>
+						<div class="team-website">
+							<b>Website:</b> <a href="http://epics.ecn.purdue.edu/wise/">http://epics.ecn.purdue.edu/wise/</a>
+						</div>
+					</div>
+				</div>
+				<div class="mix major-che major-ee major-mse" data-myorder="2">
+					<div class="name">Cellular Engineering Demonstrations</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-me" data-myorder="3">
+					<div class="name">Database and Innovative Software for the Community</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-aae" data-myorder="4">
+					<div class="name">Disability Resource Center</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-bme" data-myorder="5">
+					<div class="name">Engineers Without Borders</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-bme major-aae major-me" data-myorder="6">
+					<div class="name">Global Alternative Power Solutions</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-ce major-che" data-myorder="7">
+					<div class="name">Greater Lafayette Area Special Services</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-mse major-me major-ee major-che" data-myorder="8">
+					<div class="name">Indiana School for the Blind and Visually Impaired</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-mse" data-myorder="9">
+					<div class="name">Students Growing Sustainable Communities</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-mse major-ee" data-myorder="10">
+					<div class="name">Visiting Our Solar System @ Purdue-Accessible Campus Education</div>
+					<div class="detail">
+					</div>
+				</div>
+				<div class="mix major-ee" data-myorder="11">
+					<div class="name">Wabash Center Greenbush Industries</div>
+					<div class="detail">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		-->
+
+		<script>
+			//$('#sidebar').slideUp();
+			$('#splash-start').click(function() {
+				$('#splash').fadeOut();
+				$('.container').slideDown();
+				//$('#sidebar').slideDown();
+				//$('#objects').mixItUp();
+			});
+			//$('.name').click(function() {
+				//$('.detail').not($(this).next()).slideUp();
+				//$(this).next().slideToggle();
+			//})
+		</script>
+
+	</body>
+</html>
