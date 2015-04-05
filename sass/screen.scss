@@ -26,7 +26,7 @@ $color-pms-7498C: #3F4B00;  // dark green
 $color-pms-576C: #5C8727;   // green
 $color-aqua: #2EAFA4;  // aqua
 $color-baby-blue: #7ED0E0;   // baby blue
-$color-pms-652C: #7299C6;   // sky blue
+$color-sky-blue: #7299C6;   // sky blue
 $color-steel-blue: #5C6F7B;  // steel blue
 
 // Warm Secondary Colors
@@ -56,23 +56,7 @@ html, body {
 
 b {font-weight: bold;}
 i { font-style: italic; }
-a {
-	text-decoration: none;
-	//color: lighten($color-grey,35%);
-	//border-bottom: 2px dashed lighten($color-grey,35%);
-	//@include transition(all);
-}
-
-hr {
-	border: 0;
-	height: 1px;
-	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-	background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-	background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-	background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-	clear: both;
-	text-align: center;
-}
+a { text-decoration: none; }
 
 .lowercase { text-transform: lowercase !important; }
 .uppercase { text-transform: uppercase !important; }
@@ -81,15 +65,9 @@ hr {
 
 .hidden { display: none !important; }
 
-
-#whitesplash {
-	z-index: 11;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: $color-white;
-}
+.table { display: table !important; width: 100%; }
+.table-row { display: table-row !important; }
+.table-cell { display: table-cell !important; width: 50%; }
 
 #splash {
 	z-index: 10;
@@ -177,59 +155,11 @@ hr {
 	}
 }
 
-
-
-/// old
-.welcome {
-	display: none;
-	box-sizing: border-box;
-	width: 100%;
-	font: 1rem/2rem $sans-serif;
-	color: rgba($color-grey,0.25);
-	text-transform: uppercase;
-	letter-spacing: 2rem;
-	padding-left: 10%;
-	text-align: left;
-}
-.epics {
-	display: none;
-	box-sizing: border-box;
-	width: 100%;
-	font: 10rem/10rem $serif;
-	color: rgba($color-white,0.5);
-	text-transform: uppercase;
-	text-align: center;
-	@include transition(all 0.5s ease-in-out)
-}
-#start {
-	box-sizing: border-box;
-	width: 30rem;
-	height: 5rem;
-	margin: 5rem auto;
-	border: 2px solid $color-white;
-	border-radius: 1rem;
-	font: 1.5rem/5rem $sans-serif;
-	color: $color-white;
-	text-transform: uppercase;
-	text-align: center;
-	cursor: pointer;
-	@include transition(all 0.5s ease-in-out);
-
-	&:hover {
-		background: rgba($color-white,0.75);
-		color: darken($color-white,25%);
-	}
-}
-/// end old
-
-
-
-
 .container {
 	display: none;
 	box-sizing: border-box;
 	width: 100%;
-	//padding: 5rem 2rem;
+	padding: 2rem 3rem 2rem 23rem;
 }
 
 #sidebar {
@@ -240,7 +170,7 @@ hr {
 	width: 20rem;
 	height: 100%;
 	background: $color-dark-grey;
-	padding: 2rem 0;
+	padding: 1rem 0;
 	text-align: center;
 }
 .sidebar-title {
@@ -248,10 +178,10 @@ hr {
 	box-sizing: border-box;
 	width: 100%;
 	//padding: 1rem 5rem;
-	font: 1.5rem/3rem $serif;
+	font: 1.5rem/2rem $serif;
 	color: $color-old-gold; //$color-white;
 	text-align: center;
-	margin: 0 0 2rem 0;
+	margin: 0 0 1rem 0;
 	//font-weight: bold;
 }
 .sidebar-image {
@@ -289,29 +219,151 @@ hr {
 	border-radius: 0.5rem;
 }
 
-/// old
-#sticky {
-	position: fixed !important;
-	z-index: 5;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 5rem !important;
-	padding: 0 !important;
-	background: $color-white;
-	border-bottom: 1px solid $color-old-gold;
-	@include user-select(none);
-}
-.explorer-logotype {
-	display: block;
+#team-objects {
 	width: 100%;
-	font: 2rem/5rem $serif;
-	color: $color-old-gold;
-	//font-weight: bold;
-	//text-transform: lowercase;
-	text-align: center;
 }
 
+.team {
+	@include transition(all 0.25s ease-in-out);
+	width: 100%;
+	height: auto;
+	margin: 2rem 0;
+	border: 2px solid $color-steel-blue;
+	background: $color-steel-blue;
+}
+.team--expand {
+	background: none;
+}
+
+.team-name {
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 3rem 0 1rem;
+	font: 1.5rem/3rem $sans-serif;
+	color: $color-white;
+	cursor: pointer;
+}
+.team-name--color {
+	color: $color-steel-blue;
+}
+.fa-chevron-down, .fa-chevron-up {
+	@include transition(all 0.25s ease-in-out);
+	display: block;
+	position: absolute;
+	height: 3rem;
+	width: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	top: 0;
+	right: 0;
+}
+
+.team-detail {
+	display: none;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.5rem 2rem;
+}
+.detail-item {
+	display: block;
+	width: 100%;
+	font: 1rem/1.5rem $sans-serif;
+	color: $color-grey;
+}
+.detail-item--half {
+	display: inline-block;
+	width: 49% !important;
+}
+
+.detail--acronym::before {
+	content: 'Acronym: ';
+	font-weight: bold;
+	color: $color-steel-blue;
+}
+.detail--impact::before {
+	content: 'Area of Impact: ';
+	font-weight: bold;
+	color: $color-steel-blue;
+}
+.detail--day::before {
+	content: 'Day: ';
+	font-weight: bold;
+	color: $color-steel-blue;
+}
+.detail--time::before {
+	content: 'Time: ';
+	font-weight: bold;
+	color: $color-steel-blue;
+}
+.detail--description::before {
+	content: 'Description: ';
+	font-weight: bold;
+	color: $color-steel-blue;
+}
+.detail--skillset::before {
+	content: 'Skillset: ';
+	font-weight: bold;
+	color: $color-steel-blue;
+}
+.detail--website::before {
+	content: 'Website: ';
+	font-weight: bold;
+	color: $color-steel-blue;
+}
+.detail--website a {
+	@include transition(all 0.25s ease-in-out);
+	color: $color-baby-blue;
+	border-bottom: 1px dashed $color-baby-blue;
+	&:hover {
+		color: $color-sky-blue;
+		border-bottom: 1px dashed $color-sky-blue;
+	}
+}
+
+
+
+
+
+.team-detail-label {
+	//display: inline-block;
+	//width: 10rem;
+	font-weight: bold;
+	color: $color-steel-blue;
+}
+.team-detail-content {
+	width: 40%;
+}
+
+.name {
+	box-sizing: border-box;
+	width: 100%;
+	//height: 3rem;
+	padding: 0 1rem;
+	background: lighten($color-grey,25%);
+	font: 1.5rem/3rem $sans-serif;
+	color: $color-white;
+}
+.detail {
+	display: none;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 2rem;
+	background: lighten($color-grey,50%);
+	font: 1rem $sans-serif;
+	color: $color-grey;
+	//b {font-size: 1.25rem;}
+	a {
+		color: lighten($color-grey,35%);
+		border-bottom: 2px dashed lighten($color-grey,35%);
+		@include transition(all 0.5s ease-in-out);
+
+		&:hover {
+			color: lighten($color-grey,15%);
+		}
+	}
+}
+/// old
 
 #filters {
 	display: table;
@@ -403,7 +455,7 @@ hr {
 	//display: inline-block;
 	//vertical-align: bottom;
 	//box-sizing: border-box;
-	display: none;
+	//display: none;
 	width: 100%;
 	height: auto;
 	margin: 2rem 0;
@@ -439,3 +491,13 @@ hr {
 
 ////
 .zzyzx {}
+
+.item {
+	width: 100%;
+	height: 2rem;
+	font: 1rem/2rem $sans-serif;
+	background: $color-yellow-gold;
+}
+
+
+

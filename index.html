@@ -4,8 +4,9 @@
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans|Lora' rel='stylesheet' type='text/css'>
 
-		<title>EPICS Explorer</title>
+		<title>EPICS | explorer</title>
 
+		<link rel='stylesheet' href='css/font-awesome.min.css' type='text/css' media='all' />
 		<link rel='stylesheet' href='stylesheets/screen.css' type='text/css' media='all' />
 
 		<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
@@ -61,123 +62,48 @@
 					<span class="sidebar-item-object">Human Services</span>
 				</div>
 				
+				<div class="sidebar-item sidebar-item--skillset uppercase">
+					<span class="sidebar-item-title">Skill Set</span>
+					<span class="sidebar-item-object">Programming</span>
+				</div>
 
 			</div>
-			
 
+			<div id="team-objects">
 
-
-
-			<!--
-			<div id="filters" class="hidden">
-				<div class="filter-row">
-					<div class="filter-cell-cat">Major</div>
-					<div class="filter-cell-opt">
-						<div class="filter" data-filter=".major-che">Chemical Engineering</div>
-						<div class="filter" data-filter=".major-bme">Biomedical Engineering</div>
-						<div class="filter" data-filter=".major-aae">Aero/Astro Engineering</div>
-						<div class="filter" data-filter=".major-me">Mechanical Engineering</div>
-						<div class="filter" data-filter=".major-ee">Electrical Engineering</div>
-						<div class="filter" data-filter=".major-mse">Materials Engineering</div>
-						<div class="filter" data-filter=".major-ce">Civil Engineering</div>
-						<div class="filter" data-filter="all">Show All</div>
+				<div class="team">
+					<div class="team-name" data-field="name">
+						Web-based Interactive Software Engineering
+						<i class="fa fa-chevron-down"></i>
+					</div>
+					<div class="team-detail">
+						<span class="detail-item detail-item--half detail--acronym" data-field="acronym">WISE</span>
+						<span class="detail-item detail-item--half detail--impact" data-field="impact">Human Services</span>
+						<span class="detail-item detail-item--half detail--day" data-field="day">Thursday</span>
+						<span class="detail-item detail-item--half detail--time" data-field="time">8:30 AM - 10:30 PM</span>
+						<span class="detail-item detail--description" data-field="decription">The WISE team creates web-based applications meant to coordinate and inform their project partners' members, volunteers, and users. The applications are easy to use while still implementing requested functionality. This provides value to the users by simplifying and expanding current outdated processes without being overwhelming.</span>
+						<span class="detail-item detail--skillset" data-field="skillset">Markup languages, JavaScript, PHP, MySQL</span>
+						<span class="detail-item detail--website" data-field="website"><a href="http://epics.ecn.purdue.edu/wise/">http://epics.ecn.purdue.edu/wise/</a></span>
 					</div>
 				</div>
-				<div class="filter-row">
-					<div class="filter-cell-cat">Interests</div>
-					<div class="filter-cell-opt">
-						<span class="filter">Machinery</span>
-						<span class="filter">Chemistry</span>
-						<span class="filter">Woodworking</span>
-						<span class="filter">Fabrication</span>
-						<span class="filter">Programming</span>
-						<span class="filter">Education</span>
-						<span class="filter">Electronics</span>
+
+				<div class="team">
+					<div class="team-name">
+						Electric Vehicle Event Infrastructure
+						<i class="fa fa-chevron-down"></i>
+					</div>
+					<div class="team-detail">
+						<span class="detail-item detail-item--half detail--acronym" data-field="acronym">EVEI</span>
+						<span class="detail-item detail-item--half detail--impact" data-field="impact">Human Services</span>
+						<span class="detail-item detail-item--half detail--day" data-field="day">Thursday</span>
+						<span class="detail-item detail-item--half detail--time" data-field="time">8:30 AM - 10:30 PM</span>
+						<span class="detail-item detail--description" data-field="decription">This course is a project-based design course to develop the core infrastructure required to establish the Purdue Electric Vehicle Kart event.  This project will explore and recommend electric go-kart design specifications, track and safety requirements, and race scoring. This Multidisciplinary team will be using the EPICS Human Center Design Process to achieve the project deliverables. This project team will be making recommendations for the prototype electric vehicle go-kart event.</span>
+						<span class="detail-item detail--skillset" data-field="skillset">Electronics, Circuits</span>
+						<span class="detail-item detail--website" data-field="website"><a href="http://epics.ecn.purdue.edu/wise/">http://epics.ecn.purdue.edu/evei/</a></span>
 					</div>
 				</div>
+
 			</div>
-			<div id="sorting" class="hidden">
-				<div class="sorting-row">
-					<div class="sorting-cell-cat">Sort</div>
-					<div class="sorting-cell-opt">
-						<div class="sort" data-sort="default">Default</div>
-						<div class="sort" data-sort="myorder:asc">Ascending</div>
-						<div class="sort" data-sort="myorder:desc">Descending</div>
-						<div class="sort" data-sort="random">Random</div>
-					</div>
-				</div>
-			</div>
-
-
-			<hr class="hidden" />
-
-			<div id="objects">
-				<div class="mix major-che major-cs" data-myorder="1">
-					<div class="name">Web-based Interactive Software Engineering</div>
-					<div class="detail">
-						<div class="instructions">Instructions: Select relevant major(s), the day, the time, and the area of current team under the categories. The parent categories (i.e. the ones labeled "Day," "Timeslot," "Major," and "Area") need not be selected.</div>
-						<div class="team-description">
-							<b>Description:</b> The WISE team creates web-based applications meant to coordinate and inform their project partners' members, volunteers, and users. The applications are easy to use while still implementing requested functionality. This provides value to the users by simplifying and expanding current outdated processes without being overwhelming.
-						</div>
-						<div class="team-website">
-							<b>Website:</b> <a href="http://epics.ecn.purdue.edu/wise/">http://epics.ecn.purdue.edu/wise/</a>
-						</div>
-					</div>
-				</div>
-				<div class="mix major-che major-ee major-mse" data-myorder="2">
-					<div class="name">Cellular Engineering Demonstrations</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-me" data-myorder="3">
-					<div class="name">Database and Innovative Software for the Community</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-aae" data-myorder="4">
-					<div class="name">Disability Resource Center</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-bme" data-myorder="5">
-					<div class="name">Engineers Without Borders</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-bme major-aae major-me" data-myorder="6">
-					<div class="name">Global Alternative Power Solutions</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-ce major-che" data-myorder="7">
-					<div class="name">Greater Lafayette Area Special Services</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-mse major-me major-ee major-che" data-myorder="8">
-					<div class="name">Indiana School for the Blind and Visually Impaired</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-mse" data-myorder="9">
-					<div class="name">Students Growing Sustainable Communities</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-mse major-ee" data-myorder="10">
-					<div class="name">Visiting Our Solar System @ Purdue-Accessible Campus Education</div>
-					<div class="detail">
-					</div>
-				</div>
-				<div class="mix major-ee" data-myorder="11">
-					<div class="name">Wabash Center Greenbush Industries</div>
-					<div class="detail">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		-->
 
 		<script>
 			//$('#sidebar').slideUp();
@@ -187,10 +113,16 @@
 				//$('#sidebar').slideDown();
 				//$('#objects').mixItUp();
 			});
-			//$('.name').click(function() {
-				//$('.detail').not($(this).next()).slideUp();
-				//$(this).next().slideToggle();
-			//})
+			$('.team-name').click(function() {
+				//$('.team-detail').not($(this).next()).slideUp();
+				//$('.team-detail').not($(this)).toggleClass("team-name--color");
+				//$('.team-detail').not($(this)).parent().toggleClass("team--expand");
+				$(this).toggleClass('team-name--color');
+				$(this).parent().toggleClass('team--expand');
+				$(this).next().slideToggle();
+				$(this).children('i').toggleClass('fa-chevron-down');
+				$(this).children('i').toggleClass('fa-chevron-up');
+			})
 		</script>
 
 	</body>
