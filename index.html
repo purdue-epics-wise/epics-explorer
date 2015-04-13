@@ -37,37 +37,90 @@
 				<img class="sidebar-image" src="images/EPICS.png" />
 				<span class="sidebar-title uppercase">A p o l l o</span>
 
-				<div class="sidebar-item sidebar-item--school uppercase">
+				<div class="sidebar-item sidebar-item--school uppercase" data-field="school">
 					<span class="sidebar-item-title">School</span>
-					<span class="sidebar-item-object">Engineering</span>
+					<span class="sidebar-item-object" data-school="All">All</span>
 				</div>
 
-				<div class="sidebar-item sidebar-item--major uppercase">
+				<div class="sidebar-item sidebar-item--major uppercase" data-field="major">
 					<span class="sidebar-item-title">Major</span>
-					<span class="sidebar-item-object">Aeronautical</span>
+					<span class="sidebar-item-object" data-major="All">All</span>
 				</div>
 
-				<div class="sidebar-item sidebar-item--day uppercase">
+				<div class="sidebar-item sidebar-item--day uppercase" data-field="day">
 					<span class="sidebar-item-title">Day</span>
-					<span class="sidebar-item-object">Thursday</span>
+					<span class="sidebar-item-object" data-day="All">All</span>
 				</div>
 
-				<div class="sidebar-item sidebar-item--time uppercase">
+				<div class="sidebar-item sidebar-item--time uppercase" data-field="time">
 					<span class="sidebar-item-title">Time</span>
-					<span class="sidebar-item-object">8:30 AM - 10:20 AM</span>
+					<span class="sidebar-item-object" data-time="All">All</span>
 				</div>
 
-				<div class="sidebar-item sidebar-item--impact uppercase">
+				<div class="sidebar-item sidebar-item--impact uppercase" data-field="impact">
 					<span class="sidebar-item-title">Area of Impact</span>
-					<span class="sidebar-item-object">Human Services</span>
-				</div>
-				
-				<div class="sidebar-item sidebar-item--skillset uppercase">
-					<span class="sidebar-item-title">Skillset</span>
-					<span class="sidebar-item-object">C#</span>
+					<span class="sidebar-item-object" data-impact="All">All</span>
 				</div>
 
 			</div>
+            
+            
+            <div id="expansion" class="uppercase">
+                
+                <div class="expansion-item expansion-item--school" data-field="school">
+                    <div class="expansion-item-title">Please select a school</div>
+                    <div class="expansion-item-object" data-school="Agriculture">College of Agriculture</div>
+                    <div class="expansion-item-object" data-school="Education">College of Education</div>
+                    <div class="expansion-item-object" data-school="Engineering">College of Engineering</div>
+                    <div class="expansion-item-object" data-school="Health & Human Sciences">College of Health & Human Sciences</div>
+                    <div class="expansion-item-object" data-school="Liberal Arts">College of Liberal Arts</div>
+                    <div class="expansion-item-object" data-school="Management">Krannert School of Management</div>
+                    <div class="expansion-item-object" data-school="Pharmacy">College of Pharmacy</div>
+                    <div class="expansion-item-object" data-school="Science">College of Science</div>
+                    <div class="expansion-item-object" data-school="Technology">College of Technology</div>
+                    <div class="expansion-item-object" data-school="Veterinary Medicine">College of Veterinary Medicine</div>
+                    <div class="expansion-item-object" data-school="All">Show All</div>
+                </div>
+                
+                <div class="expansion-item expansion-item--major" data-field="major">
+                    <div class="expansion-item-title">Please select a major</div>
+                    <div class="expansion-item-object"></div>
+                </div>
+                
+                <div class="expansion-item expansion-item--day" data-field="day">
+                    <div class="expansion-item-title">Please select a day</div>
+                    <div class="expansion-item-object" data-day="Monday">Monday</div>
+                    <div class="expansion-item-object" data-day="Tuesday">Tuesday</div>
+                    <div class="expansion-item-object" data-day="Wednesday">Wednesday</div>
+                    <div class="expansion-item-object" data-day="Thursday">Thursday</div>
+                    <div class="expansion-item-object" data-day="Friday">Friday</div>
+                    <div class="expansion-item-object" data-day="All">Show All</div>
+                    
+                </div>
+                
+                <div class="expansion-item expansion-item--time" data-field="time">
+                    <div class="expansion-item-title">Please select a time</div>
+                    <div class="expansion-item-object" data-time="8:30 AM - 10:20 AM">8:30 AM - 10:20 AM</div>
+                    <div class="expansion-item-object" data-time="10:30 AM - 12:20 PM">10:30 AM - 12:20 PM</div>
+                    <div class="expansion-item-object" data-time="1:30 PM - 3:20 PM">1:30 PM - 3:20 PM</div>
+                    <div class="expansion-item-object" data-time="3:30 PM - 5:20 PM">3:30 PM - 5:20 PM</div>
+                    <div class="expansion-item-object" data-time="All">Show All</div>
+                    
+                </div>
+                
+                <div class="expansion-item expansion-item--impact" data-field="impact">
+                    <div class="expansion-item-title">Please select an area of impact</div>
+                    <div class="expansion-item-object" data-impact="Access & Abilities">Access & Abilities</div>
+                    <div class="expansion-item-object" data-impact="Education & Outreach">Education & Outreach</div>
+                    <div class="expansion-item-object" data-impact="Environment">Environment</div>
+                    <div class="expansion-item-object" data-impact="Human Services">Human Services</div>
+                    <div class="expansion-item-object" data-impact="All">Show All</div>
+                    
+                </div>
+                
+                
+            </div>
+            
 
 			<div id="team-objects">
 
@@ -188,6 +241,20 @@
 				$(this).children('i').toggleClass('fa-chevron-down');
 				$(this).children('i').toggleClass('fa-chevron-up');
 			})
+            $('.sidebar-item').click(function() {
+                var field = $(this).data('field');
+                $('.expansion-item').fadeOut();
+                $('#expansion').fadeIn();
+                $('.expansion-item--' + field).fadeIn();
+            });
+            $('.expansion-item-object').click(function() {
+                var field = $(this).parent().data('field');
+                var value = $(this).data(field);
+                $('.sidebar-item--' + field).children('.sidebar-item-object').text(value);
+                $('.sidebar-item--' + field).children('.sidebar-item-object').data(field, value);
+                $('#expansion').fadeOut();
+                $('.expansion-item').fadeOut();
+            });
 		</script>
 
 	</body>

@@ -2,32 +2,32 @@
 @import "compass/css3/transition";
 @import "compass/css3/user-interface";
 
-$color-grey: rgba(100,100,100,1);
-$color-white: rgba(250,250,250,1);
+$grey: rgba(100,100,100,1);
+$white: rgba(250,250,250,1);
 
 
 // // // PURDUE COLOR PALETTE
 
 // Legacy Core Colors
-$color-old-gold: rgba(163,121,44,1);
-$color-black: rgba(0,0,0,1);
+$old-gold: rgba(163,121,44,1);
+$black: rgba(0,0,0,1);
 
 // Expanded Core Colors
 $color-pms-7405C: #E3AE24;  // yellow-gold
-$color-yellow-gold: #e4ae23;
-$color-dark-grey: #231f20;
-$color-pms-405C: #746C66;   // grey
-$color-40black: #A7A9AC;    // 40% black
-$color-20black: #D1D3D4;    // 20% black
-$color-whitespace: #FFFFFF; // white
+$yellow-gold: #e4ae23;
+$dark-grey: #231f20;
+$grey-gold: #746C66;   // grey gold
+$color-40black: #A7A9AC;	// 40% black
+$color-20black: #D1D3D4;	// 20% black
+$pure-white: #FFFFFF; // white
 
 // Cool Secondary Colors
 $color-pms-7498C: #3F4B00;  // dark green
 $color-pms-576C: #5C8727;   // green
-$color-aqua: #2EAFA4;  // aqua
-$color-baby-blue: #7ED0E0;   // baby blue
-$color-sky-blue: #7299C6;   // sky blue
-$color-steel-blue: #5C6F7B;  // steel blue
+$aqua: #2EAFA4;  // aqua
+$baby-blue: #7ED0E0;   // baby blue
+$sky-blue: #7299C6;   // sky blue
+$steel-blue: #5C6F7B;  // steel blue
 
 // Warm Secondary Colors
 $color-pms-246C: #B63F97;   // pink (reserved for females)
@@ -44,8 +44,8 @@ $serif: "Lora";
 
 html, body {
 	font: 16px $sans-serif;
-	color: $color-grey;
-	background: $color-white;
+	color: $grey;
+	background: $white;
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -92,9 +92,9 @@ a { text-decoration: none; }
 	height: 10rem;
 	width: 100%;
 	overflow: hidden;
-	border-top: 20px solid $color-old-gold;
-	background: $color-dark-grey;
-	border-bottom: 3px solid $color-yellow-gold;
+	border-top: 20px solid $old-gold;
+	background: $dark-grey;
+	border-bottom: 3px solid $yellow-gold;
 	@include user-select(none);
 }
 .logotype-purdue {
@@ -118,13 +118,13 @@ a { text-decoration: none; }
 	width: 100%;
 	padding: 1rem 5rem;
 	font: 2rem/3rem $serif;
-	color: rgba($color-white,0.75);
+	color: rgba($white,0.75);
 	text-align: right;
 	font-weight: bold;
 }
 .splash-headline--keyword {
 	letter-spacing: 1rem;
-    margin-left: 1rem;
+	margin-left: 1rem;
 }
 
 .splash-intro {
@@ -132,7 +132,7 @@ a { text-decoration: none; }
 	box-sizing: border-box;
 	width: 100%;
 	font: 1.5rem/3rem $sans-serif;
-	color: rgba($color-white,0.75);
+	color: rgba($white,0.75);
 	text-align: center;
 	padding: 2rem 0;
 }
@@ -143,16 +143,16 @@ a { text-decoration: none; }
 	width: 30rem;
 	height: 5rem;
 	margin: 1rem auto;
-	border: 2px solid $color-white;
+	border: 2px solid $white;
 	border-radius: 1rem;
 	font: 1.5rem/5rem $sans-serif;
-	color: $color-white;
+	color: $white;
 	text-transform: uppercase;
 	text-align: center;
 	cursor: pointer;
 	&:hover {
-		background: rgba($color-white,0.75);
-		color: darken($color-white,50%);
+		background: rgba($white,0.75);
+		color: darken($white,50%);
 	}
 }
 
@@ -165,12 +165,14 @@ a { text-decoration: none; }
 
 #sidebar {
 	position: fixed;
+	z-index: 50;
 	top: 0;
 	left: 0;
+	bottom: 0;
 	box-sizing: border-box;
 	width: 20rem;
 	height: 100%;
-	background: $color-dark-grey;
+	background: $dark-grey;
 	padding: 1rem 0;
 	text-align: center;
 }
@@ -180,7 +182,7 @@ a { text-decoration: none; }
 	width: 100%;
 	//padding: 1rem 5rem;
 	font: 1.5rem/2rem $serif;
-	color: $color-old-gold; //$color-white;
+	color: $old-gold; //$white;
 	text-align: center;
 	margin: 0 0 1rem 0;
 	//font-weight: bold;
@@ -199,11 +201,11 @@ a { text-decoration: none; }
 	margin: 0.5rem 0;
 	font: 1rem/2rem $sans-serif !important;
 	//font-weight: bold;
-	color: $color-white;
+	color: $white;
 	text-align: center;
 	cursor: pointer;
 	&:hover {
-		background: $color-pms-405C;
+		background: $grey-gold;
 	}
 }
 .sidebar-item-title {
@@ -216,9 +218,57 @@ a { text-decoration: none; }
 	display: block;
 	//width: 100%;
 	height: 2rem;
-	background: $color-old-gold;
+	background: $old-gold;
 	border-radius: 0.5rem;
 }
+
+
+#expansion {
+    display: none;
+	position: fixed;
+	z-index: 40;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	//bottom: 0;
+	//right: 0;
+	width: 100%;
+	height: 100%;
+	padding: 2rem 3rem 2rem 23rem;
+	background: rgba($old-gold,0.9);
+	text-align: center;
+    color: $white;
+}
+
+.expansion-item {
+	display: none;
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+}
+.expansion-item-title {
+	width: 100%;
+	height: 5rem;
+	font: 2rem/5rem $sans-serif;
+	text-align: center;
+	font-weight: bold;
+}
+.expansion-item-object {
+    @include transition(all 0.25s ease-in-out);
+	width: 100%;
+	font: 1rem/2rem $sans-serif;
+    border-radius: 0.5rem;
+	margin: 0.5rem 0;
+    cursor: pointer;
+    &:hover {
+        background: lighten($old-gold,40%);
+        color: $old-gold;
+    }
+}
+
+
+
+
 
 #team-objects {
 	width: 100%;
@@ -229,8 +279,8 @@ a { text-decoration: none; }
 	width: 100%;
 	height: auto;
 	margin: 2rem 0;
-	border: 2px solid $color-steel-blue;
-	background: $color-steel-blue;
+	border: 2px solid $steel-blue;
+	background: $steel-blue;
 }
 .team--expand {
 	background: none;
@@ -242,11 +292,11 @@ a { text-decoration: none; }
 	width: 100%;
 	padding: 0 3rem 0 1rem;
 	font: 1.5rem/3rem $sans-serif;
-	color: $color-white;
+	color: $white;
 	cursor: pointer;
 }
 .team-name--color {
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .fa-chevron-down, .fa-chevron-up {
 	@include transition(all 0.25s ease-in-out);
@@ -270,7 +320,7 @@ a { text-decoration: none; }
 	display: block;
 	width: 100%;
 	font: 1rem/1.5rem $sans-serif;
-	color: $color-grey;
+	color: $grey;
 }
 .detail-item--half {
 	display: inline-block;
@@ -280,45 +330,45 @@ a { text-decoration: none; }
 .detail--acronym::before {
 	content: 'Acronym: ';
 	font-weight: bold;
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .detail--impact::before {
 	content: 'Area of Impact: ';
 	font-weight: bold;
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .detail--day::before {
 	content: 'Day: ';
 	font-weight: bold;
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .detail--time::before {
 	content: 'Time: ';
 	font-weight: bold;
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .detail--description::before {
 	content: 'Description: ';
 	font-weight: bold;
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .detail--skillset::before {
 	content: 'Skillset: ';
 	font-weight: bold;
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .detail--website::before {
 	content: 'Website: ';
 	font-weight: bold;
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .detail--website a {
 	@include transition(all 0.25s ease-in-out);
-	color: $color-baby-blue;
-	border-bottom: 1px dashed $color-baby-blue;
+	color: $baby-blue;
+	border-bottom: 1px dashed $baby-blue;
 	&:hover {
-		color: $color-sky-blue;
-		border-bottom: 1px dashed $color-sky-blue;
+		color: $sky-blue;
+		border-bottom: 1px dashed $sky-blue;
 	}
 }
 
@@ -330,7 +380,7 @@ a { text-decoration: none; }
 	//display: inline-block;
 	//width: 10rem;
 	font-weight: bold;
-	color: $color-steel-blue;
+	color: $steel-blue;
 }
 .team-detail-content {
 	width: 40%;
@@ -341,26 +391,26 @@ a { text-decoration: none; }
 	width: 100%;
 	//height: 3rem;
 	padding: 0 1rem;
-	background: lighten($color-grey,25%);
+	background: lighten($grey,25%);
 	font: 1.5rem/3rem $sans-serif;
-	color: $color-white;
+	color: $white;
 }
 .detail {
 	display: none;
 	box-sizing: border-box;
 	width: 100%;
 	padding: 2rem;
-	background: lighten($color-grey,50%);
+	background: lighten($grey,50%);
 	font: 1rem $sans-serif;
-	color: $color-grey;
+	color: $grey;
 	//b {font-size: 1.25rem;}
 	a {
-		color: lighten($color-grey,35%);
-		border-bottom: 2px dashed lighten($color-grey,35%);
+		color: lighten($grey,35%);
+		border-bottom: 2px dashed lighten($grey,35%);
 		@include transition(all 0.5s ease-in-out);
 
 		&:hover {
-			color: lighten($color-grey,15%);
+			color: lighten($grey,15%);
 		}
 	}
 }
@@ -392,7 +442,7 @@ a { text-decoration: none; }
 	padding: 1rem;
 	vertical-align: middle;
 	font: 1.25rem/2rem $sans-serif;
-	color: lighten($color-grey,20%);
+	color: lighten($grey,20%);
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: left;
@@ -430,7 +480,7 @@ a { text-decoration: none; }
 	padding: 1rem;
 	vertical-align: middle;
 	font: 1.25rem/2rem $sans-serif;
-	color: lighten($color-grey,20%);
+	color: lighten($grey,20%);
 	font-weight: bold;
 	text-transform: uppercase;
 	text-align: left;
@@ -443,8 +493,8 @@ a { text-decoration: none; }
 	cursor: pointer;
 }
 .active {
-	color: $color-white;
-	background: $color-grey;
+	color: $white;
+	background: $grey;
 	border-radius: 0.5rem;
 }
 #objects {
@@ -466,26 +516,26 @@ a { text-decoration: none; }
 	width: 100%;
 	//height: 3rem;
 	padding: 0 1rem;
-	background: lighten($color-grey,25%);
+	background: lighten($grey,25%);
 	font: 1.5rem/3rem $sans-serif;
-	color: $color-white;
+	color: $white;
 }
 .detail {
 	display: none;
 	box-sizing: border-box;
 	width: 100%;
 	padding: 2rem;
-	background: lighten($color-grey,50%);
+	background: lighten($grey,50%);
 	font: 1rem $sans-serif;
-	color: $color-grey;
+	color: $grey;
 	//b {font-size: 1.25rem;}
 	a {
-		color: lighten($color-grey,35%);
-		border-bottom: 2px dashed lighten($color-grey,35%);
+		color: lighten($grey,35%);
+		border-bottom: 2px dashed lighten($grey,35%);
 		@include transition(all 0.5s ease-in-out);
 
 		&:hover {
-			color: lighten($color-grey,15%);
+			color: lighten($grey,15%);
 		}
 	}
 }
@@ -497,7 +547,7 @@ a { text-decoration: none; }
 	width: 100%;
 	height: 2rem;
 	font: 1rem/2rem $sans-serif;
-	background: $color-yellow-gold;
+	background: $yellow-gold;
 }
 
 
