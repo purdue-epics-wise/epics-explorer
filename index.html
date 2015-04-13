@@ -33,6 +33,12 @@
 
 		<div class="container">
 
+			<i id="search-icon" class="fa fa-search"></i>
+
+			<div id="search">
+				<input type="text" placeholder="Search for..." id="search-bar">
+			</div>
+
 			<div id="sidebar">
 				<img class="sidebar-image" src="images/EPICS.png" />
 				<span class="sidebar-title uppercase">A p o l l o</span>
@@ -527,6 +533,9 @@
 				$(this).next().slideToggle();
 				$(this).children('i').toggleClass('fa-chevron-down');
 				$(this).children('i').toggleClass('fa-chevron-up');
+			})
+			$('#search-icon').click(function() {
+				$('#search').fadeToggle();
 			})
             $('.sidebar-item').click(function() {
                 var field = $(this).data('field');
