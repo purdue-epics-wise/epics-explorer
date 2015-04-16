@@ -75,17 +75,17 @@
                 
                 <div class="expansion-item expansion-item--school" data-field="school">
                     <div class="expansion-item-title">Please select a school</div>
-                    <div class="expansion-item-object" data-school="Agriculture">College of Agriculture</div>
-                    <div class="expansion-item-object" data-school="Education">College of Education</div>
-                    <div class="expansion-item-object" data-school="Engineering">College of Engineering</div>
-                    <div class="expansion-item-object" data-school="Health & Human Sciences">College of Health & Human Sciences</div>
-                    <div class="expansion-item-object" data-school="Liberal Arts">College of Liberal Arts</div>
-                    <div class="expansion-item-object" data-school="Management">Krannert School of Management</div>
-                    <div class="expansion-item-object" data-school="Pharmacy">College of Pharmacy</div>
-                    <div class="expansion-item-object" data-school="Science">College of Science</div>
-                    <div class="expansion-item-object" data-school="Technology">College of Technology</div>
-                    <div class="expansion-item-object" data-school="Veterinary Medicine">College of Veterinary Medicine</div>
-                    <div class="expansion-item-object" data-school="All">Show All</div>
+                    <div class="expansion-item-object" data-school="Agriculture" data-filter=".school--agriculture">College of Agriculture</div>
+                    <div class="expansion-item-object" data-school="Education" data-filter=".school--education">College of Education</div>
+                    <div class="expansion-item-object" data-school="Engineering" data-filter=".school--engineering">College of Engineering</div>
+                    <div class="expansion-item-object" data-school="Health & Human Sciences" data-filter=".school--health">College of Health & Human Sciences</div>
+                    <div class="expansion-item-object" data-school="Liberal Arts" data-filter=".school--liberal-arts">College of Liberal Arts</div>
+                    <div class="expansion-item-object" data-school="Management" data-filter=".school--krannert">Krannert School of Management</div>
+                    <div class="expansion-item-object" data-school="Pharmacy" data-filter=".school--pharmacy">College of Pharmacy</div>
+                    <div class="expansion-item-object" data-school="Science" data-filter=".school--science">College of Science</div>
+                    <div class="expansion-item-object" data-school="Technology" data-filter=".school--technology">College of Technology</div>
+                    <div class="expansion-item-object" data-school="Veterinary Medicine" data-filter=".school--veterinary-medicine">College of Veterinary Medicine</div>
+                    <div class="expansion-item-object" data-school="All" data-filter="all">Show All</div>
                 </div>
                 
                 <div class="expansion-item expansion-item--major" data-field="major">
@@ -130,7 +130,7 @@
 
 			<div id="team-objects">
 
-				<div class="team">
+				<div class="team school--engineering time--1 day--thursday impact--human-services">
 					<div class="team-name" data-field="name">
 						Web-based Interactive Software Engineering
 						<i class="fa fa-chevron-down"></i>
@@ -523,6 +523,13 @@
 				$('.container').slideDown();
 				//$('#sidebar').slideDown();
 				//$('#objects').mixItUp();
+
+	            $('#team-objects').mixItUp({
+	            	selectors: {
+	            		filter: '.expansion-item-object',
+	            		target: '.team'
+	            	}
+	            })
 			});
 			$('.team-name').click(function() {
 				//$('.team-detail').not($(this).next()).slideUp();

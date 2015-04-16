@@ -315,10 +315,11 @@ a { text-decoration: none; }
 
 .team {
 	@include transition(all 0.25s ease-in-out);
+	display: none;
 	width: 100%;
 	height: auto;
 	box-sizing: border-box;
-	margin: 2rem 0;
+	margin: 1rem 0;
 	border: 2px solid $steel-blue;
 	background: $steel-blue;
 }
