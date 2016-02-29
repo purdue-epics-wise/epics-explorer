@@ -1,0 +1,27 @@
+<script>
+
+var myDataRef = new Firebase('https://e-picks-purdue.firebaseio.com/');
+
+myDataRef.on('child_added', function(snapshot) {
+    var team = snapshot.val();
+    displayChatMessage(team.school, team.time, team.day, team.team_name, team.team_abbrev, team.aoe, team.description, team.skills, team.website);
+});
+
+function appendClassDiv(school, time, day, team_name, team_abbrev, aoe, description, skills, website) 
+{
+
+$('<div class="team school--').text(school).append(' time--').text(time).append(' day--').text(day).append(' impact--human-services"> 
+	<div class="team-name" data-field="name"> ').text(team_name).append(' <i class="fa fa-chevron-down"></i> 
+	</div> 
+	<div class="team-detail"> 
+		<span class="detail-item detail-item--half detail--acronym" data-field="acronym">').text(team_abbrev).append('</span>
+		<span class="detail-item detail-item--half detail--impact" data-field="impact">').text(aoe).append('</span>
+		<span class="detail-item detail-item--half detail--day" data-field="day">').text(day).append('</span>
+		<span class="detail-item detail--description" data-field="description">').text(description).append('</span>
+		<span class="detail-item detail--skillset" data-field="skillset">'.text(skills).append('</span> 
+		<span class="detail-item detail--website" data-field="website"><a href="'.text(website).append('">').text(website).append('</a></span>
+	</div>
+</div>').appendTo($('#team-objects'));
+
+}
+</script>

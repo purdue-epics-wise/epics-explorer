@@ -135,7 +135,7 @@ a {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: url("../images/splash.jpg") center center no-repeat;
+  background: url("../images/splash2.jpg") center center no-repeat;
   background-size: cover;
   cursor: default;
   -moz-user-select: -moz-none;
@@ -186,7 +186,7 @@ a {
   width: 100%;
   padding: 1rem 5rem;
   font: 2rem/3rem "Lora";
-  color: rgba(250, 250, 250, 0.75);
+  color: rgba(0,0,0,1);
   text-align: right;
   font-weight: bold;
 }
@@ -203,7 +203,7 @@ a {
   box-sizing: border-box;
   width: 100%;
   font: 1.5rem/3rem "Open Sans";
-  color: rgba(250, 250, 250, 0.75);
+  color: rgba(0,0,0, 1);
   text-align: center;
   padding: 2rem 0;
 }
@@ -218,7 +218,7 @@ a {
   width: 30rem;
   height: 5rem;
   margin: 1rem auto;
-  border: 2px solid #fafafa;
+  border: 2px solid #c9b95f;
   border-radius: 1rem;
   font: 1.5rem/5rem "Open Sans";
   color: #fafafa;
