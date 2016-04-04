@@ -1,26 +1,177 @@
 <!DOCTYPE html>
 
 <html>
+
+<head>
+
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.mixitup.js"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+<script>
+
+var myDataRef = new Firebase('https://e-picks-purdue.firebaseio.com/');
+
+function submit(thing) {
+
+  
+  var team_name = thing.parentElement.children[0].value;
+  var team_abbrev = thing.parentElement.children[2].value;
+  var website = thing.parentElement.children[4].value;
+  var day = thing.parentElement.children[6].value;
+  var time_num = thing.parentElement.children[8].value;
+  switch(time_num){
+    case "1":
+      var time = "8:30 AM - 10:20 AM";
+      break;
+    case "2":
+      var time = "10:30 AM - 12:20 PM";
+      break;
+    case "3":
+      var time = "1:30 PM - 3:20 PM";
+      break;
+    case "4":
+      var time = "3:30 PM - 5:20 PM";
+      break;
+    default:
+      var time = "Something is messed up";
+  }
+  var aoi = thing.parentElement.children[10].value;
+  var desc = thing.parentElement.children[13].value;
+  /*  
+  var day = $('#newDay').val();
+  $('#newDay').val('Choose a Day');
+  var desc = $('#newDesc').val();
+  $('#newDesc').val(null);
+  var team_abbrev = $('#newAc').val();
+  $('#newAc').val(null);
+  var team_name = $('#newName').val();
+  $('#newName').val(null);
+  var time_num = $('#newTime').val();
+  $('#newTime').val('Choose a Time');
+  switch(time_num){
+    case "1":
+      var time = "8:30 AM - 10:20 AM";
+      break;
+    case "2":
+      var time = "10:30 AM - 12:20 PM";
+      break;
+    case "3":
+      var time = "1:30 PM - 3:20 PM";
+      break;
+    case "4":
+      var time = "3:30 PM - 5:20 PM";
+      break;
+    default:
+      var time = "Something is messed up";
+  }
+  var website = $('#newWebsite').val();
+  $('#newWebsite').val(null);
+  var aoi = $('#newAOI').val();
+  $('#newAOI').val('Choose an Area');
+  */
+
+
+  //alert(day + "  "+ desc + "  "+ team_abbrev + "  "+ team_name +  "  " + time + "  " + time_num + "  " + website);
+
+  var tempRef = myDataRef.child(team_abbrev);
+
+  var r = confirm("Are you sure?");
+  if (r == true) {
+    x = "Team Deleted";
+  } else {
+    return;
+  }
+
+  tempRef.update({
+     aoi: aoi,
+     day: day,
+     description: desc,
+     team_abbrev: team_abbrev,
+     team_name: team_name,
+     time: time,
+     time_num: time_num,
+     website: website
+  });
+
+  document.location.reload(true);
+}
+
+function goodbye(abbrev) {
+  //alert(abbrev);
+
+  var r = confirm("Are you sure?");
+  if (r == true) {
+    x = "Team Deleted";
+  } else {
+    return;
+  }
+
+  var delChild = myDataRef.child(abbrev);
+  delChild.remove();
+  document.location.reload(true);
+}
+
+function edit(abbrev) {
+  //alert(abbrev);
+  var ed = myDataRef.child(abbrev);
+
+  var name, acc, web, day, time, aoi, desc;
+  
+  ed.once("value", function(snapshot) {
+    name = snapshot.val().team_name;
+    acc = snapshot.val().team_abbrev;
+    web = snapshot.val().website; 
+    day = snapshot.val().day;
+    aoi = snapshot.val().aoi;
+    desc = snapshot.val().description;
+    time = snapshot.val().time;
+  });
+
+  $("#" + abbrev).remove();
+  $("#" + abbrev + "outer").append($('<div>Team Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="TeamName" id="newName'+acc+'" value="'+name+'"><br>Team Acronym:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="TeamAcronym" id="newAc'+acc+'" value="'+acc+'"><br>Website:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="Website" value="'+web+'" id="newWebsite'+acc+'"><br>Day:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="newDay'+acc+'"><option>'+day+'</option><option value="Monday">Monday</option><option value="Tuesday">Tuesday</option><option value="Wednesday">Wednesday</option><option value="Thursday">Thursday</option><option value="Friday">Friday</option></select><br> Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select value="'+time+'" id = "newTime'+acc+'">  <option value="1">8:30 AM - 10:20 AM</option><option value="2">10:30 AM - 12:20 PM</option><option value="3">1:30 PM - 3:20 PM</option><option value="4">3:30 PM - 5:20 PM</option><option value="5">4:30 PM - 6:20 PM</option>  <option value="6">5:30 PM - 7:20 PM</option><option value="7">6:00 PM - 7:50 PM</option></select><br>Area of Impact:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id = "newAOI'+acc+'"><option>'+aoi+'</option><option value="Access & Abilities">Access & Abilities</option><option value="Education & Outreach">Education & Outreach</option><option value="Environment">Environment</option><option value="Human Services">Human Services</option></select><br>Description:<br> <TEXTAREA NAME="Description" id="newDesc'+acc+'" ROWS=5 COLS=50 >'+desc+'</textarea><br><input type="submit" onclick="submit(this)" value="Submit">'));
+}
+/*
+Team Name:<input type="text" name="TeamName" id="newName" placeholder="Enter team name"><br>Team Acronym:<input type="text" name="TeamAcronym" id="newAc" placeholder="Enter team acronym" ><br>Website:<input type="text" name="Website" id="newWebsite" placeholder="Enter a website"><br>Day:<select id="newDay"><option>Choose a Day</option><option value="Monday">Monday</option><option value="Tuesday">Tuesday</option><option value="Wednesday">Wednesday</option><option value="Thursday">Thursday</option><option value="Friday">Friday</option></select><br> Time:<select id = "newTime"><option>Choose a Time</option><option value="1">8:30 AM - 10:20 AM</option><option value="2">10:30 AM - 12:20 PM</option><option value="3">12:30 PM - 2:20 PM</option><option value="4">2:30 PM - 4:20 PM</option></select><br>Area of Impact:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id = "newAOI"><option>Choose an Area</option><option value="Access & Abilities">Access & Abilities</option><option value="Education & Outreach">Education & Outreach</option><option value="Environment">Environment</option><option value="Human Services">Human Services</option></select><br>Description:<br> <TEXTAREA NAME="Description" id="newDesc" ROWS=3 COLS=30 ></textarea><br><input type="submit" value="Submit" onclick="submit()">'
+*/
+
+
+myDataRef.on('child_added', function(snapshot) {
+  var team = snapshot.val();
+    displayTeamInfo(team.team_abbrev, team.description, team.aoi, team.day, team.team_name, team.time, team.website, team.time_num);
+  });
+
+  function displayTeamInfo(abbrev, desc, aoi, day, name, time, website, time_num) {
+    $("#team-objects").append(
+      $('<div id="'+abbrev+'outer" style="background-color:#f0f0f0; outline-style: solid; padding-top: 5px; padding-right: 3px; padding-bottom: 5px; padding-left: 8px;"><div id="'+abbrev+'"> Team Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ name + "<br>Team Acronym:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +  abbrev + "<br>Website:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + website +"<br>Day:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + day +"<br>Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + time +"<br>Area of Impact:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + aoi + '<br>Description:<br>' + desc + '<br><input type="submit" value="Edit" onclick="edit(\''+abbrev+'\')"><input type="submit" value="Delete" onclick="goodbye(\''+abbrev+'\')"></div></div>')
+    );
+  };
+
+</script>
+
+</head>
 <body>
-<div style="background-color:#f0f0f0; outline-style: solid; padding-top: 5px; padding-right: 3px; padding-bottom: 5px; padding-left: 8px;">
+<div style="background-color:#808080; outline-style: solid; padding-top: 5px; padding-right: 3px; padding-bottom: 5px; padding-left: 8px;">
 
 Team Name:
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;
-<input type="text" name="TeamName" value="Ayyy"><br>
+&nbsp;&nbsp;&nbsp;
+&nbsp;
+<input type="text" name="TeamName" id="newName" placeholder="Enter team name"><br>
 
 Team Acronym:
-&nbsp;&nbsp;
-<input type="text" name="TeamAcronym" value="lmao"><br>
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+<input type="text" name="TeamAcronym" id="newAc" placeholder="Enter team acronym" ><br>
 
 Website:
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;
-<input type="text" name="Website" value="www.dotcom.com"><br>
+&nbsp;&nbsp;&nbsp;
+<input type="text" name="Website" id="newWebsite" placeholder="Enter a website"><br>
 
 Day:
 &nbsp;&nbsp;&nbsp;
@@ -30,27 +181,54 @@ Day:
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;
-<select>
-  <option>Pick-a-Day</option>
-  <option value="monday">Monday</option>
-  <option value="tuesday">Tuesday</option>
-  <option value="wednesday">Wednesday</option>
-  <option value="thursday">Thursday</option>
-  <option value="friday">Friday</option>
+<select id="newDay">
+  <option>Choose a Day</option>
+  <option value="Monday">Monday</option>
+  <option value="Tuesday">Tuesday</option>
+  <option value="Wednesday">Wednesday</option>
+  <option value="Thursday">Thursday</option>
+  <option value="Friday">Friday</option>
 </select><br> 
 
-Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<select>
-  <option>Pick-a-Time</option>
+Time:
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;
+<select id = "newTime">
+  <option>Choose a Time</option>
   <option value="1">8:30 AM - 10:20 AM</option>
   <option value="2">10:30 AM - 12:20 PM</option>
-  <option value="3">12:30 PM - 2:20 PM</option>
-  <option value="4">2:30 PM - 4:20 PM</option>
+  <option value="3">1:30 PM - 3:20 PM</option>
+  <option value="4">3:30 PM - 5:20 PM</option>
+  <option value="5">4:30 PM - 6:20 PM</option>
+  <option value="6">5:30 PM - 7:20 PM</option>
+  <option value="7">6:00 PM - 7:50 PM</option>
+
+</select><br>
+
+Area of Impact:
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;
+<select id = "newAOI">
+  <option>Choose an Area</option>
+  <option value="Access & Abilities">Access & Abilities</option>
+  <option value="Education & Outreach">Education & Outreach</option>
+  <option value="Environment">Environment</option>
+  <option value="Human Services">Human Services</option>
 </select><br>
 
 Description:<br> 
-<TEXTAREA NAME="Description" ROWS=3 COLS=30 ></textarea> <br>
-<input type="submit" value="Submit">
-<div>
+<TEXTAREA NAME="Description" id="newDesc" ROWS=3 COLS=30 ></textarea><br>
+<input type="submit" value="Submit" onclick="submit(this)">
+
+</div>
+
+<div id="team-objects"></div>
+
 </body>
 </html>
