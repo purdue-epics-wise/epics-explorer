@@ -11,14 +11,14 @@ function login(thing) {
 
 	var ref = new Firebase("https://e-picks-purdue.firebaseio.com/");
 
-	ref.authWithPassword({
-  		"email"    : "user1@example.com",//thing.parentElement.children[0].value,
-  		"password" : "1234"//thing.parentElement.children[3].value
-	}, function(error, authData) {
+	ref.createUser({
+  		email    : "bobtony@firebase.com",
+  		password : "correcthorsebatterystaple"
+	}, function(error, userData) {
   		if (error) {
-    		alert("No such user");
+    		alert("Error!");
   		} else {
-    		alert("It worked?");
+    		alert("Else!");
   		}
 	});
 
